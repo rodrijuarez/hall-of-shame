@@ -7,7 +7,22 @@
     
     <el-main>
       <el-table :data="companies">
-        <el-table-column prop="name" label="Nombre" width="140">
+        <el-table-column prop="name" label="Nombre" width="300" sortable>
+        </el-table-column>
+        <el-table-column prop="scores.benefits" label="Beneficios" width="300" sortable>
+        </el-table-column>
+	<el-table-column prop="scores.code_quality" label="Code quality" width="300" sortable>
+        </el-table-column>
+	<el-table-column prop="scores.equipment" label="Equipamiento" width="300" sortable>
+        </el-table-column>
+	<el-table-column prop="scores.salary" label="Salario" width="300" sortable>
+        </el-table-column>
+	<el-table-column label="Openqube" width="300">
+      <template slot-scope="scope">
+   	<el-button
+          size="mini">
+		<a :href="getOpenQubeLink(scope.row)" target="_blank">Resenias</a></el-button>
+      </template>
         </el-table-column>
       </el-table>
     </el-main>
@@ -24,6 +39,9 @@ export default {
       )
         .then(response => response.json())
         .then(companies => (this.companies = companies));
+    },
+    getOpenQubeLink(company) {
+      return `http://openqube.io/companies/${company._id}`;
     },
   },
   mounted() {
