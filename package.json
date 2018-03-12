@@ -1,15 +1,18 @@
 {
-  "name": "element-starter",
-  "description": "A Vue.js project",
-  "author": "yi.shyang@ele.me",
+  "name": "hall-of-shame",
+  "description": "Hall of shame for IT companies",
+  "author": "rodrigo.juarez.inf@gmail.com",
   "private": true,
+  "homepage": "https://github.com/rodrijuarez/hall-of-shame"
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --env.dev",
-    "build": "rimraf dist && webpack -p --progress --hide-modules"
+    "build": "rimraf dist && webpack -p --progress --hide-modules",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "element-ui": "^2.0.0",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vue-gh-pages": "^1.10.2"
   },
   "engines": {
     "node": ">=6"
@@ -21,7 +24,6 @@
     "babel-preset-vue-app": "^1.2.0",
     "css-loader": "^0.27.0",
     "file-loader": "^0.10.1",
-    "gh-pages": "^1.1.0",
     "html-webpack-plugin": "^2.24.1",
     "postcss-loader": "^1.3.3",
     "rimraf": "^2.5.4",
