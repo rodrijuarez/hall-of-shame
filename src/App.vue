@@ -35,7 +35,7 @@ export default {
   methods: {
     loadCompanies() {
       fetch(
-        'http://cors-anywhere.herokuapp.com/http://openqube.io/api/ranking?limit=100&sort=+average_score&reviews.total%3E=10',
+        'https://cors-anywhere.herokuapp.com/http://openqube.io/api/ranking?limit=100&sort=+average_score&reviews.total%3E=10',
       )
         .then(response => response.json())
         .then(companies => (this.companies = companies));
