@@ -3,7 +3,7 @@
   "description": "Hall of shame for IT companies",
   "author": "rodrigo.juarez.inf@gmail.com",
   "private": true,
-  "homepage": "https://github.com/rodrijuarez/hall-of-shame"
+  "homepage": "https://github.com/rodrijuarez/hall-of-shame",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --env.dev",
     "build": "rimraf dist && webpack -p --progress --hide-modules",
