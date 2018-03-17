@@ -2,7 +2,7 @@
 <el-container>
   <el-container>
     <el-header style="font-size: 24px; text-align: center">
-      <h1>Hall of Shame - Argentina IT</h1>
+      <h1 style="font-family: Helvetica Neue">Hall of Shame - Argentina IT</h1>
     </el-header>
     
     <el-main>
@@ -54,12 +54,17 @@ export default {
   },
 };
 </script>
+<style>
+  body, html {
+     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+     font-weight: 400;
+  }
   .el-header {
-    background-color: #B3C0D1;
+    background-color: #b3c0d1;
     color: #333;
     line-height: 60px;
   }
-  
+
   .el-aside {
     color: #333;
   }
