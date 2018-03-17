@@ -1,10 +1,7 @@
 <template>
 <el-container>
   <el-container>
-    <el-header style="font-size: 24px; text-align: center">
-      <h1 style="font-family: Helvetica Neue">Hall of Shame - Argentina IT</h1>
-    </el-header>
-    
+	  <el-header style="font-size: 24px; text-align: center"><span>Hall of Shame - Argentina IT</span></el-header>
     <el-main>
       <el-table :data="companies">
         <el-table-column prop="name" label="Nombre" width="300" sortable>
@@ -21,7 +18,7 @@
       <template slot-scope="scope">
    	<el-button
           size="mini">
-		<a :href="getOpenQubeLink(scope.row)" target="_blank">Reseñas</a></el-button>
+		<a class="link" :href="getOpenQubeLink(scope.row)" target="_blank">Reseñas</a></el-button>
       </template>
         </el-table-column>
       </el-table>
@@ -55,17 +52,24 @@ export default {
 };
 </script>
 <style>
-  body, html {
-     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
-     font-weight: 400;
-  }
-  .el-header {
-    background-color: #b3c0d1;
-    color: #333;
-    line-height: 60px;
-  }
+body,
+html {
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+}
+.el-header {
+  background-color: #b3c0d1;
+  color: #333;
+  line-height: 60px;
+}
 
-  .el-aside {
-    color: #333;
-  }
+.el-aside {
+  color: #333;
+}
+
+a.link {
+  color: inherit;
+  text-decoration: none;
+}
 </style>
