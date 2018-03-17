@@ -13,7 +13,15 @@
     <span slot="title">Acerca de</span>
   </el-menu-item>
 </el-menu>
-      <el-table :data="companies">
+      <el-table :data="companies" @expand-change="handleCompanyExpansion">
+	 <el-table-column type="expand">
+      <template slot-scope="props">
+	      <div v-for="comment in props.row.comments">
+		      <i class="el-icon-caret-right"></i>
+		      <span>{{ comment  }}</span>
+	      </div>
+      </template>
+    </el-table-column>
         <el-table-column prop="name" label="Nombre" width="300" sortable>
         </el-table-column>
         <el-table-column prop="scores.benefits" label="Beneficios" width="300" sortable>
@@ -40,6 +48,9 @@
 <script>
 export default {
   methods: {
+    handleCompanyExpansion(company) {
+      this.getReviews(company);
+    },
     loadCompanies() {
       fetch(
         'https://cors-anywhere.herokuapp.com/http://openqube.io/api/ranking?limit=100&sort=+average_score&reviews.total%3E=10',
@@ -49,6 +60,26 @@ export default {
     },
     getOpenQubeLink(company) {
       return `http://openqube.io/companies/${company._id}`;
+    },
+    async getReviews(company) {
+      const {_id} = company;
+
+      const response = await fetch(
+        `https://cors-anywhere.herokuapp.com/http://openqube.io//api/reviews?company_id=${_id}&limit=5&status=%2Fapproved%7Cadded%2F&offset=0&sort=-added`,
+      );
+
+      const reviewsOfCompany = await response.json();
+
+      this.companies = this.companies.map(item => {
+        if (company._id !== item._id) return item;
+
+        const comments = reviewsOfCompany.map(
+          review => review.comments.negative,
+        );
+
+        company.comments = comments;
+        return company;
+      });
     },
   },
   mounted() {
