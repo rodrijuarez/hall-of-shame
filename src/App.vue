@@ -2,7 +2,7 @@
 <el-container>
   <el-container>
     <el-header style="font-size: 24px; text-align: center">
-      <span>Hall of Shame - Argentina IT</span>
+      <h1>Hall of Shame - Argentina IT</h1>
     </el-header>
     
     <el-main>
@@ -21,7 +21,7 @@
       <template slot-scope="scope">
    	<el-button
           size="mini">
-		<a :href="getOpenQubeLink(scope.row)" target="_blank">Resenias</a></el-button>
+		<a :href="getOpenQubeLink(scope.row)" target="_blank">Reseñas</a></el-button>
       </template>
         </el-table-column>
       </el-table>
